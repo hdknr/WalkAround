@@ -131,6 +131,13 @@ namespace WalkAround.Droid
 				DisplayAddress(address);
 			}
 		}
+
+		public void OnProviderDisabled(string provider) {}
+		public void OnProviderEnabled(string provider) {}
+		public void OnStatusChanged(string provider, Availability status, Bundle extras)
+		{
+			Log.Debug(TAG, "{0}, {1}", provider, status);
+		}
 	}
 }
 
