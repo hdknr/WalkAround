@@ -114,6 +114,23 @@ namespace WalkAround.Droid
 				label.Text = "Unable to determine the address. Try again in a few minutes.";
 			}
 		}
+
+		public async void OnLocationChanged(Location location)
+		{
+			var label = ((WalkAround.MainContent)WalkAround.App.Current.MainPage).AddressLabel;
+
+			_currentLocation = location;
+			if (_currentLocation == null)
+			{
+				label.Text = "Unable to determine your location. Try again in a short while.";
+			}
+			else
+			{
+				label.Text = string.Format("{0:f6},{1:f6}", _currentLocation.Latitude, _currentLocation.Longitude);
+				Address address = await ReverseGeocodeCurrentLocation();
+				DisplayAddress(address);
+			}
+		}
 	}
 }
 
