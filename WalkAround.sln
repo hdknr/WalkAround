@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalkAround", "WalkAround\WalkAround.csproj", "{21D733C1-04A7-4F05-8CE8-ABB290C496F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalkAround.iOS", "iOS\WalkAround.iOS.csproj", "{9DEFAB20-A84B-430C-90ED-257C39BA6EA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalkAround.Droid", "Droid\WalkAround.Droid.csproj", "{FFB054EE-4EC0-47B7-BFB2-308FFD0DF23D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21D733C1-04A7-4F05-8CE8-ABB290C496F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21D733C1-04A7-4F05-8CE8-ABB290C496F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21D733C1-04A7-4F05-8CE8-ABB290C496F5}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{21D733C1-04A7-4F05-8CE8-ABB290C496F5}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{21D733C1-04A7-4F05-8CE8-ABB290C496F5}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{21D733C1-04A7-4F05-8CE8-ABB290C496F5}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{21D733C1-04A7-4F05-8CE8-ABB290C496F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21D733C1-04A7-4F05-8CE8-ABB290C496F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21D733C1-04A7-4F05-8CE8-ABB290C496F5}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{21D733C1-04A7-4F05-8CE8-ABB290C496F5}.Release|iPhone.Build.0 = Release|Any CPU
+		{21D733C1-04A7-4F05-8CE8-ABB290C496F5}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{21D733C1-04A7-4F05-8CE8-ABB290C496F5}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{9DEFAB20-A84B-430C-90ED-257C39BA6EA3}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
+		{9DEFAB20-A84B-430C-90ED-257C39BA6EA3}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
+		{9DEFAB20-A84B-430C-90ED-257C39BA6EA3}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{9DEFAB20-A84B-430C-90ED-257C39BA6EA3}.Debug|iPhone.Build.0 = Debug|iPhone
+		{9DEFAB20-A84B-430C-90ED-257C39BA6EA3}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{9DEFAB20-A84B-430C-90ED-257C39BA6EA3}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{9DEFAB20-A84B-430C-90ED-257C39BA6EA3}.Release|Any CPU.ActiveCfg = Release|iPhone
+		{9DEFAB20-A84B-430C-90ED-257C39BA6EA3}.Release|Any CPU.Build.0 = Release|iPhone
+		{9DEFAB20-A84B-430C-90ED-257C39BA6EA3}.Release|iPhone.ActiveCfg = Release|iPhone
+		{9DEFAB20-A84B-430C-90ED-257C39BA6EA3}.Release|iPhone.Build.0 = Release|iPhone
+		{9DEFAB20-A84B-430C-90ED-257C39BA6EA3}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{9DEFAB20-A84B-430C-90ED-257C39BA6EA3}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{FFB054EE-4EC0-47B7-BFB2-308FFD0DF23D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFB054EE-4EC0-47B7-BFB2-308FFD0DF23D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFB054EE-4EC0-47B7-BFB2-308FFD0DF23D}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{FFB054EE-4EC0-47B7-BFB2-308FFD0DF23D}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{FFB054EE-4EC0-47B7-BFB2-308FFD0DF23D}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{FFB054EE-4EC0-47B7-BFB2-308FFD0DF23D}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{FFB054EE-4EC0-47B7-BFB2-308FFD0DF23D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFB054EE-4EC0-47B7-BFB2-308FFD0DF23D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFB054EE-4EC0-47B7-BFB2-308FFD0DF23D}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{FFB054EE-4EC0-47B7-BFB2-308FFD0DF23D}.Release|iPhone.Build.0 = Release|Any CPU
+		{FFB054EE-4EC0-47B7-BFB2-308FFD0DF23D}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{FFB054EE-4EC0-47B7-BFB2-308FFD0DF23D}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
