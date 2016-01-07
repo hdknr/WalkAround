@@ -14,7 +14,7 @@ using Android.Locations;
 using Android.Util;
 
 using System.Threading.Tasks;
-
+using System.Text;
 
 namespace WalkAround.Droid
 {
@@ -95,7 +95,25 @@ namespace WalkAround.Droid
 			return address;
 		}
 
+		void DisplayAddress(Address address)
+		{
+			var label = ((WalkAround.MainContent)WalkAround.App.Current.MainPage).AddressLabel;
 
+			if (address != null)
+			{
+				StringBuilder deviceAddress = new StringBuilder();
+				for (int i = 0; i < address.MaxAddressLineIndex; i++)
+				{
+					deviceAddress.AppendLine(address.GetAddressLine(i));
+				}
+				// Remove the last comma from the end of the address.
+				label.Text = deviceAddress.ToString();
+			}
+			else
+			{
+				label.Text = "Unable to determine the address. Try again in a few minutes.";
+			}
+		}
 	}
 }
 

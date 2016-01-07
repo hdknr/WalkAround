@@ -10,6 +10,8 @@ namespace WalkAround
 			XAlign = TextAlignment.Center, FontSize=30};
 		public Label LatitudeLabel = new Label(){
 			XAlign = TextAlignment.Center, FontSize=30};
+		public Label AddressLabel = new Label(){
+			XAlign = TextAlignment.Center, FontSize=30};
 		
 		public MainContent ()
 		{
@@ -18,7 +20,7 @@ namespace WalkAround
 					new Label { Text = "Hello ContentPage" }
 					,LongitudeLabel
 					,LatitudeLabel
-
+					,AddressLabel
 				}
 			};
 		}
