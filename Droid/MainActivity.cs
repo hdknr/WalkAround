@@ -15,12 +15,25 @@ using Android.Util;
 
 using System.Threading.Tasks;
 using System.Text;
+using System.Threading;
 
 namespace WalkAround.Droid
 {
-	[Activity (Label = "WalkAround.Droid", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity, ILocationListener
+	[Activity (
+		Label = "WalkAround.Droid", 
+		Icon = "@drawable/icon", MainLauncher = true, 
+		ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)
+	]
+	public class MainActivity : 
+		global::Xamarin.Forms.Platform.Android.FormsApplicationActivity, 
+		ILocationListener
 	{
+		public WalkAround.MainContent MainPage {
+			get {
+				return (WalkAround.MainContent)WalkAround.App.Current.MainPage;
+			}
+		}
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -29,11 +42,15 @@ namespace WalkAround.Droid
 
 			LoadApplication (new App ());
 
-
-			((WalkAround.MainContent)WalkAround.App.Current.MainPage).LongitudeLabel.Text = "Longitude";
-			((WalkAround.MainContent)WalkAround.App.Current.MainPage).LatitudeLabel.Text = "Latitiude";
+			MainPage.LongitudeLabel.Text = "Longitude";
+			MainPage.LatitudeLabel.Text = "Latitiude";
 
 			InitializeLocationManager();
+
+			// 
+			new Timer((o) => RunOnUiThread(() =>{
+				MainPage.TimeLabel.Text = DateTime.Now.ToString("T");   
+			}), null , 0, 1000);
 		}
 
 		Location _currentLocation;
@@ -88,11 +105,8 @@ namespace WalkAround.Droid
 
 		async Task<Address> ReverseGeocodeCurrentLocation()
 		{
-
 			Geocoder geocoder = new Geocoder(this);
-
-
-
+	
 			IList<Address> addressList =
 				await geocoder.GetFromLocationAsync(
 					_currentLocation.Latitude, 
@@ -104,7 +118,7 @@ namespace WalkAround.Droid
 
 		void DisplayAddress(Address address)
 		{
-			var label = ((WalkAround.MainContent)WalkAround.App.Current.MainPage).AddressLabel;
+			var label = MainPage.AddressLabel;
 
 			if (address != null)
 			{
@@ -124,7 +138,7 @@ namespace WalkAround.Droid
 
 		public async void OnLocationChanged(Location location)
 		{
-			var label = ((WalkAround.MainContent)WalkAround.App.Current.MainPage).LongitudeLabel;
+			var label = MainPage.LongitudeLabel;
 
 			_currentLocation = location;
 			if (_currentLocation == null)

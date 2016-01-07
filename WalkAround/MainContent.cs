@@ -12,6 +12,9 @@ namespace WalkAround
 			XAlign = TextAlignment.Center, FontSize=30};
 		public Label AddressLabel = new Label(){
 			XAlign = TextAlignment.Center, FontSize=30};
+
+		public Label TimeLabel = new Label(){
+			XAlign = TextAlignment.Center, FontSize=30, TextColor=Color.Red};
 		
 		public MainContent ()
 		{
@@ -21,6 +24,7 @@ namespace WalkAround
 					,LongitudeLabel
 					,LatitudeLabel
 					,AddressLabel
+					,TimeLabel
 				}
 			};
 		}
