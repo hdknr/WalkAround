@@ -13,11 +13,13 @@ using System.Linq;
 using Android.Locations;
 using Android.Util;
 
+using System.Threading.Tasks;
+
 
 namespace WalkAround.Droid
 {
 	[Activity (Label = "WalkAround.Droid", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
+	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity, ILocationListener
 	{
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -58,6 +60,42 @@ namespace WalkAround.Droid
 			}
 			Log.Debug(TAG, "Using " + _locationProvider + ".");
 		}
+
+
+		/// <summary>
+		/// Raises the resume event.
+		/// </summary>
+		protected override void OnResume ()
+		{
+			base.OnResume ();
+			_locationManager.RequestLocationUpdates(_locationProvider, 0, 0, this);
+
+		}
+
+		/// <Docs>Called as part of the activity lifecycle when an activity is going into
+		///  the background, but has not (yet) been killed.</Docs>
+		/// <summary>
+		/// Raises the pause event.
+		/// </summary>
+		protected override void OnPause()
+		{
+			base.OnPause();
+			_locationManager.RemoveUpdates(this);
+		}
+
+		async Task<Address> ReverseGeocodeCurrentLocation()
+		{
+			Geocoder geocoder = new Geocoder(this);
+			IList<Address> addressList =
+				await geocoder.GetFromLocationAsync(
+					_currentLocation.Latitude, 
+					_currentLocation.Longitude, 10);
+
+			Address address = addressList.FirstOrDefault();
+			return address;
+		}
+
+
 	}
 }
 
