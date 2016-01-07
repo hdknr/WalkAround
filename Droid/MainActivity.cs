@@ -30,6 +30,8 @@ namespace WalkAround.Droid
 
 			((WalkAround.MainContent)WalkAround.App.Current.MainPage).LongitudeLabel.Text = "Longitude";
 			((WalkAround.MainContent)WalkAround.App.Current.MainPage).LatitudeLabel.Text = "Latitiude";
+
+			InitializeLocationManager();
 		}
 
 		Location _currentLocation;
