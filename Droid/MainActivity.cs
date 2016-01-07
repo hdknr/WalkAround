@@ -20,6 +20,10 @@ namespace WalkAround.Droid
 			global::Xamarin.Forms.Forms.Init (this, bundle);
 
 			LoadApplication (new App ());
+
+
+			((WalkAround.MainContent)WalkAround.App.Current.MainPage).LongitudeLabel.Text = "Longitude";
+			((WalkAround.MainContent)WalkAround.App.Current.MainPage).LatitudeLabel.Text = "Latitiude";
 		}
 	}
 }
