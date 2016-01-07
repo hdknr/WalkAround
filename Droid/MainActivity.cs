@@ -44,6 +44,7 @@ namespace WalkAround.Droid
 		void InitializeLocationManager()
 		{
 			_locationManager = (LocationManager) GetSystemService(LocationService);
+
 			Criteria criteriaForLocationService = new Criteria
 			{
 				Accuracy = Accuracy.Fine
@@ -53,6 +54,8 @@ namespace WalkAround.Droid
 			if (acceptableLocationProviders.Any())
 			{
 				_locationProvider = acceptableLocationProviders.First();
+
+				this.OnLocationChanged (_locationManager.GetLastKnownLocation (_locationProvider));
 			}
 			else
 			{
@@ -85,7 +88,11 @@ namespace WalkAround.Droid
 
 		async Task<Address> ReverseGeocodeCurrentLocation()
 		{
+
 			Geocoder geocoder = new Geocoder(this);
+
+
+
 			IList<Address> addressList =
 				await geocoder.GetFromLocationAsync(
 					_currentLocation.Latitude, 
@@ -117,7 +124,7 @@ namespace WalkAround.Droid
 
 		public async void OnLocationChanged(Location location)
 		{
-			var label = ((WalkAround.MainContent)WalkAround.App.Current.MainPage).AddressLabel;
+			var label = ((WalkAround.MainContent)WalkAround.App.Current.MainPage).LongitudeLabel;
 
 			_currentLocation = location;
 			if (_currentLocation == null)
@@ -126,6 +133,7 @@ namespace WalkAround.Droid
 			}
 			else
 			{
+				
 				label.Text = string.Format("{0:f6},{1:f6}", _currentLocation.Latitude, _currentLocation.Longitude);
 				Address address = await ReverseGeocodeCurrentLocation();
 				DisplayAddress(address);
