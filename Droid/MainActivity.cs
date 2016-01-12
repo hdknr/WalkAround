@@ -17,12 +17,23 @@ using System.Threading.Tasks;
 using System.Text;
 using System.Threading;
 
+using NetTopologySuite;
+using NetTopologySuite.IO;
+using GeoAPI;
+
+using NetTopologySuite.CoordinateSystems;
+using NetTopologySuite.Features;
+using NetTopologySuite.Geometries;
+
 namespace WalkAround.Droid
 {
+	// ConfigurationChanges: 
+	//		to stop re-creating this activity when screee size or 
+	// 		orientation is changed.
 	[Activity (
 		Label = "WalkAround.Droid", 
 		Icon = "@drawable/icon", MainLauncher = true, 
-		ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)
+		ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation) 
 	]
 	public class MainActivity : 
 		global::Xamarin.Forms.Platform.Android.FormsApplicationActivity, 
@@ -37,6 +48,8 @@ namespace WalkAround.Droid
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
+
+			var x = StationFactory.Create ();
 
 			global::Xamarin.Forms.Forms.Init (this, bundle);
 
@@ -152,6 +165,14 @@ namespace WalkAround.Droid
 				Address address = await ReverseGeocodeCurrentLocation();
 				DisplayAddress(address);
 			}
+
+			// JTS(Java Topology Suite)
+			var service = NtsGeometryServices.Instance;
+			var gf = service.CreateGeometryFactory();
+			var reader = new GeoJsonReader ();
+
+			var json = @"{""type"": ""Point"", ""coordinates"": [-122.402, 37.7976983333333]}";
+//			var obj = reader.Read<Point> (json);
 		}
 
 		public void OnProviderDisabled(string provider) {}

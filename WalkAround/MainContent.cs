@@ -27,8 +27,7 @@ namespace WalkAround
 					,TimeLabel
 				}
 			};
+					
 		}
 	}
 }
-
-
