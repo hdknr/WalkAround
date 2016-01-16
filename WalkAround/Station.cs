@@ -15,10 +15,10 @@ namespace WalkAround
 		public int id {get;set; }
 		public string name {get;set;}
 
-		[JsonConverter(typeof(GeometryConverter))]
+		[JsonConverter(typeof(GeosConverter))]
 		public Point location {get;set;}
 
-		[JsonConverter(typeof(GeometryConverter))]
+		[JsonConverter(typeof(GeosConverter))]
 		public Polygon area {get;set;}
 
 		public static Station Deserialize(string json)

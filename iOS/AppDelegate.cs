@@ -23,7 +23,7 @@ namespace WalkAround.iOS
 
 			var station = this.GetStation ();
 				
-			var area = station.Area;
+//			var area = station.Area;
 
 
 			new Thread(new ThreadStart(() => {
@@ -36,7 +36,7 @@ namespace WalkAround.iOS
 			return base.FinishedLaunching (app, options);
 		}
 
-		public WalkAround.iOS.Station GetStation()
+		public WalkAround.Station GetStation()
 		{
 			var json = @"
 {
@@ -52,7 +52,7 @@ namespace WalkAround.iOS
   }
 }
 ";
-			return WalkAround.iOS.Station.Deserialize (json);
+			return WalkAround.Station.Deserialize (json);
 		}
 	}
 
